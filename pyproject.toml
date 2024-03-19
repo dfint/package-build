@@ -12,6 +12,9 @@ streamlit = "^1.32.2"
 requests = "^2.31.0"
 pydantic = "^2.6.4"
 
+[tool.poetry.group.dev.dependencies]
+rich = "^13.7.1"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"

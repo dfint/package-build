@@ -18,9 +18,9 @@ hook_metadata_url = metadata_url_base + "hook.json"
 
 
 @st.cache_data(show_spinner="Getting hook metadata...", ttl=datetime.timedelta(minutes=15))
-def get_hook_metadata() -> dict[int, HookInfoEntry]:
+def get_hook_metadata() -> list[HookInfoEntry]:
     data = get_json(hook_metadata_url)
-    return {item["df"]: HookInfoEntry.model_validate(item) for item in data}
+    return [HookInfoEntry.model_validate(item) for item in data]
 
 
 @st.cache_data(show_spinner="Getting dict metadata...", ttl=datetime.timedelta(minutes=15))
