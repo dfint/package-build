@@ -28,4 +28,9 @@ def parse_metadata(metadata: list[HookInfoEntry]) -> MetadataParsingResult:
         variants.add(variant)
         operating_systems.add(os)
 
-    return MetadataParsingResult(sorted(df_versions), sorted(variants), sorted(operating_systems), mapping)
+    return MetadataParsingResult(
+        sorted(df_versions, reverse=True),
+        sorted(variants),
+        sorted(operating_systems),
+        mapping,
+    )
