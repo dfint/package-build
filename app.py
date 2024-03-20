@@ -16,3 +16,12 @@ with column1:
 with column2:
     df_variant: str = st.selectbox(label="DF variant", options=hook_metadata.variants)
     dict_entry: DictInfoEntry = st.selectbox(label="Language", options=dict_metadata)
+
+hook_info = hook_metadata.mapping.get((df_version, df_variant, operating_systems))
+
+if not hook_info:
+    st.write("Cannot create package for these parameters")
+else:
+    button_generate = st.button("Generate package")
+    if button_generate:
+        st.write(repr(hook_info))
