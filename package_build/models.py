@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 
 class HookInfoEntry(BaseModel):
@@ -7,6 +7,8 @@ class HookInfoEntry(BaseModel):
     lib: str
     config: str
     offsets: str
+    
+    model_config = ConfigDict(frozen=True)
 
 
 class DictInfoEntry(BaseModel):
@@ -18,3 +20,5 @@ class DictInfoEntry(BaseModel):
 
     def __str__(self):
         return self.language
+    
+    model_config = ConfigDict(frozen=True)

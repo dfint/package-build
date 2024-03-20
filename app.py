@@ -2,6 +2,7 @@ import streamlit as st
 from package_build.metadata import get_hook_metadata, get_dict_metadata
 from package_build.models import DictInfoEntry
 from package_build.parse_metadata import parse_metadata
+from package_build.download_parts import download_parts
 
 hook_metadata = parse_metadata(get_hook_metadata())
 
@@ -24,4 +25,6 @@ if not hook_info:
 else:
     button_generate = st.button("Generate package")
     if button_generate:
-        st.write(repr(hook_info))
+        st.write(hash(hook_info))
+        st.write(hash(dict_entry))
+        parts = download_parts(hook_info, dict_entry)
