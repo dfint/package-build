@@ -9,7 +9,7 @@ def download(url: str) -> bytes:
     return response.content
 
 
-@st.cache_data
+# @st.cache_data
 def download_parts(hook_info: HookInfoEntry, dict_info: DictInfoEntry):
     library = download(hook_info.lib)
     config = download(hook_info.config)

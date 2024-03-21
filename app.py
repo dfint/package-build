@@ -27,4 +27,5 @@ else:
     if button_generate:
         st.write(hash(hook_info))
         st.write(hash(dict_entry))
-        parts = download_parts(hook_info, dict_entry)
+        with st.spinner("Downloading files..."):
+            parts = download_parts(hook_info, dict_entry)
