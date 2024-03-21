@@ -25,5 +25,6 @@ if not hook_info:
 else:
     button_generate = st.button("Generate package")
     if button_generate:
-        with st.status("Downloading files..."):
+        with st.status("Downloading files...", expanded=True) as status:
             parts = download_parts(hook_info, dict_entry)
+            status.update(label="Download complete!", state="complete", expanded=False)
