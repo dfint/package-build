@@ -25,7 +25,5 @@ if not hook_info:
 else:
     button_generate = st.button("Generate package")
     if button_generate:
-        st.write(hash(hook_info))
-        st.write(hash(dict_entry))
-        with st.spinner("Downloading files..."):
+        with st.status("Downloading files..."):
             parts = download_parts(hook_info, dict_entry)
