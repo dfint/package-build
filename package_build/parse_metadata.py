@@ -21,7 +21,7 @@ def parse_url(url: str) -> tuple[str, str, str]:
 
 
 def parse_metadata(metadata: list[HookInfoEntry]) -> MetadataParsingResult:
-    mapping = dict()
+    mapping = {}
     df_versions = set()
     variants = set()
     operating_systems = set()
