@@ -1,8 +1,9 @@
 import streamlit as st
-from package_build.metadata import get_hook_metadata, get_dict_metadata
+
+from package_build.download_parts import download_parts
+from package_build.metadata import get_dict_metadata, get_hook_metadata
 from package_build.models import DictInfoEntry
 from package_build.parse_metadata import parse_metadata
-from package_build.download_parts import download_parts
 
 hook_metadata = parse_metadata(get_hook_metadata())
 

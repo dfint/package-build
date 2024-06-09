@@ -21,5 +21,5 @@ class DictInfoEntry(BaseConfiguredModel):
     encoding: str
     checksum: int
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.language

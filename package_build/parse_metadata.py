@@ -1,5 +1,6 @@
 import re
 from typing import NamedTuple
+
 from .models import HookInfoEntry
 
 
@@ -13,7 +14,8 @@ class MetadataParsingResult(NamedTuple):
 def parse_url(url: str) -> tuple[str, str, str]:
     result = re.search(r"offsets/([\w\.-]+)_([a-z]+)_([a-z\d]+)\.toml", url)
     if not result:
-        raise ValueError(f"Cannot parse offsets URL: {url!r}")
+        msg = f"Cannot parse offsets URL: {url!r}"
+        raise ValueError(msg)
     version, variant, os = result.groups()
     return version, variant, os
 

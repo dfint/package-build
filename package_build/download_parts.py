@@ -1,16 +1,20 @@
-import streamlit as st
-from .models import DictInfoEntry, HookInfoEntry
 import requests
+import streamlit as st
+
+from .models import DictInfoEntry, HookInfoEntry
 
 
 def download(url: str) -> bytes:
-    response = requests.get(url)
+    response = requests.get(url, timeout=300)
     response.raise_for_status()
     return response.content
 
 
 # @st.cache_data
-def download_parts(hook_info: HookInfoEntry, dict_info: DictInfoEntry):
+def download_parts(
+    hook_info: HookInfoEntry,
+    dict_info: DictInfoEntry,
+) -> tuple[bytes, bytes, bytes, bytes, bytes, bytes]:
     st.write("Download library...")
     library = download(hook_info.lib)
     st.write("Download config...")

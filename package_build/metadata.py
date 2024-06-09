@@ -3,11 +3,11 @@ import datetime
 import requests
 import streamlit as st
 
-from .models import HookInfoEntry, DictInfoEntry
+from .models import DictInfoEntry, HookInfoEntry
 
 
 def get_json(url: str) -> list[dict]:
-    response = requests.get(url)
+    response = requests.get(url, timeout=300)
     response.raise_for_status()
     return response.json()
 
