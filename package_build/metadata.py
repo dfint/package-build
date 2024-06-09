@@ -6,7 +6,7 @@ import streamlit as st
 from .models import HookInfoEntry, DictInfoEntry
 
 
-def get_json(url: str):
+def get_json(url: str) -> list[dict]:
     response = requests.get(url)
     response.raise_for_status()
     return response.json()
@@ -14,7 +14,7 @@ def get_json(url: str):
 
 metadata_url_base = "https://dfint.github.io/update-data/metadata/"
 dict_metadata_url = metadata_url_base + "dict.json"
-hook_metadata_url = metadata_url_base + "hook.json"
+hook_metadata_url = metadata_url_base + "hook_v2.json"
 
 
 @st.cache_data(show_spinner="Getting hook metadata...", ttl=datetime.timedelta(minutes=15))

@@ -1,17 +1,20 @@
 from pydantic import BaseModel, ConfigDict
 
 
-class HookInfoEntry(BaseModel):
+class BaseConfiguredModel(BaseModel):
+    model_config = ConfigDict(frozen=True)
+
+
+class HookInfoEntry(BaseConfiguredModel):
     df: int
     checksum: int
     lib: str
     config: str
     offsets: str
-    
-    model_config = ConfigDict(frozen=True)
+    dfhooks: str
 
 
-class DictInfoEntry(BaseModel):
+class DictInfoEntry(BaseConfiguredModel):
     language: str
     csv: str
     font: str
@@ -20,5 +23,3 @@ class DictInfoEntry(BaseModel):
 
     def __str__(self):
         return self.language
-    
-    model_config = ConfigDict(frozen=True)
