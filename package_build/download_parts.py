@@ -22,10 +22,7 @@ class DownloadedParts(NamedTuple):
 
 
 # @st.cache_data
-def download_parts(
-    hook_info: HookInfoEntry,
-    dict_info: DictInfoEntry,
-) -> tuple[bytes, bytes, bytes, bytes, bytes, bytes]:
+def download_parts(hook_info: HookInfoEntry, dict_info: DictInfoEntry) -> DownloadedParts:
     st.write("Download library...")
     library = download(hook_info.lib)
 
