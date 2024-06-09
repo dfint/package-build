@@ -11,7 +11,7 @@ class MetadataParsingResult(NamedTuple):
 
 
 def parse_url(url: str) -> tuple[str, str, str]:
-    version, variant, os = re.search(r"offsets/([\d\.]+)_([a-z]+)_([a-z\d]+)\.toml", url).groups()
+    version, variant, os = re.search(r"offsets/([\w\.-]+)_([a-z]+)_([a-z\d]+)\.toml", url).groups()
     return version, variant, os
 
 
