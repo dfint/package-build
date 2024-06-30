@@ -41,8 +41,9 @@ else:
         with st.status("Building package...", expanded=True) as status:
             root_dir = Path(__file__).parent
             build_dir = root_dir / "build"
-            package_path = build_package(
-                root_dir=root_dir,
+            package_path = root_dir / "dfint.zip"
+            build_package(
+                package_path=package_path,
                 build_dir=build_dir,
                 hook_info=hook_info,
                 parts=parts,
