@@ -1,4 +1,3 @@
-import shutil
 from pathlib import Path
 
 import streamlit as st
@@ -6,6 +5,7 @@ import streamlit as st
 from package_build.download_parts import download_parts
 from package_build.metadata import get_dict_metadata, get_hook_metadata
 from package_build.models import DictInfoEntry
+from package_build.package import build_package
 from package_build.parse_metadata import parse_metadata
 
 hook_metadata = parse_metadata(get_hook_metadata())
@@ -41,38 +41,13 @@ else:
         with st.status("Building package...", expanded=True) as status:
             root_dir = Path(__file__).parent
             build_dir = root_dir / "build"
-            shutil.rmtree(build_dir)
-            build_dir.mkdir(parents=True)
-
-            package_name_no_extension = "dfint"
-            package_path = root_dir / f"{package_name_no_extension}.zip"
-            package_path.unlink(missing_ok=True)
-            package_path_without_extension = root_dir / "dfint"
-
-            (build_dir / hook_info.dfhooks_name).write_bytes(parts.dfhooks)
-
-            lib_name = "dfhooks_dfint.dll" if operating_systems.startswith("win") else "libdfhooks_dfint.so"
-            (build_dir / lib_name).write_bytes(parts.library)
-
-            dfint_data_dir = build_dir / "dfint-data"
-            dfint_data_dir.mkdir()
-
-            (dfint_data_dir / "config.toml").write_bytes(parts.config)
-            (dfint_data_dir / "offsets.toml").write_bytes(parts.offsets)
-
-            (dfint_data_dir / "dictionary.csv").write_bytes(parts.csv_file)
-            (dfint_data_dir / "encoding.toml").write_bytes(parts.encoding_config)
-
-            art_dir = build_dir / "data" / "art"
-            art_dir.mkdir(parents=True)
-            (art_dir / "curses_640x300.png").write_bytes(parts.font_file)
-
-            shutil.make_archive(
-                package_name_no_extension,
-                format="zip",
-                base_dir=build_dir.relative_to(root_dir),
+            package_path = build_package(
+                root_dir=root_dir,
+                build_dir=build_dir,
+                hook_info=hook_info,
+                parts=parts,
+                is_win=operating_systems.startswith("win"),
             )
-
             status.update(label="Package ready!", state="complete", expanded=False)
 
         st.download_button(
