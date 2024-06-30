@@ -13,6 +13,10 @@ class HookInfoEntry(BaseConfiguredModel):
     offsets: str
     dfhooks: str
 
+    @property
+    def dfhooks_name(self) -> str:
+        return self.dfhooks.rpartition("/")[-1]
+
 
 class DictInfoEntry(BaseConfiguredModel):
     language: str

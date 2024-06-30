@@ -14,6 +14,7 @@ def download(url: str) -> bytes:
 
 class DownloadedParts(NamedTuple):
     library: bytes
+    dfhooks: bytes
     config: bytes
     offsets: bytes
     csv_file: bytes
@@ -25,6 +26,9 @@ class DownloadedParts(NamedTuple):
 def download_parts(hook_info: HookInfoEntry, dict_info: DictInfoEntry) -> DownloadedParts:
     st.write("Download library...")
     library = download(hook_info.lib)
+
+    st.write("Download dfhooks library...")
+    dfhooks = download(hook_info.dfhooks)
 
     st.write("Download config...")
     config = download(hook_info.config)
@@ -43,6 +47,7 @@ def download_parts(hook_info: HookInfoEntry, dict_info: DictInfoEntry) -> Downlo
 
     return DownloadedParts(
         library=library,
+        dfhooks=dfhooks,
         config=config,
         offsets=offsets,
         csv_file=csv_file,
