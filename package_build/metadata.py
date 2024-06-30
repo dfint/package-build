@@ -26,4 +26,4 @@ def get_hook_metadata() -> list[HookInfoEntry]:
 @st.cache_data(show_spinner="Getting dict metadata...", ttl=datetime.timedelta(minutes=15))
 def get_dict_metadata() -> list[DictInfoEntry]:
     data = get_json(dict_metadata_url)
-    return [DictInfoEntry.model_validate(item) for item in data]
+    return [DictInfoEntry.model_validate(item) for item in data if item.get("code")]

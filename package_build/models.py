@@ -20,6 +20,7 @@ class HookInfoEntry(BaseConfiguredModel):
 
 class DictInfoEntry(BaseConfiguredModel):
     language: str
+    code: str
     csv: str
     font: str
     encoding: str

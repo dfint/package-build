@@ -18,7 +18,7 @@ df_version_options = hook_metadata.df_version_options
 
 with column1:
     df_version: str = st.selectbox(label="DF version", options=sorted(df_version_options, reverse=True))
-    operating_systems: str = st.selectbox(
+    operating_system: str = st.selectbox(
         label="Operating system/platform",
         options=df_version_options[df_version].operating_systems,
     )
@@ -27,7 +27,7 @@ with column2:
     df_variant: str = st.selectbox(label="DF variant", options=df_version_options[df_version].variants)
     dict_entry: DictInfoEntry = st.selectbox(label="Language", options=dict_metadata)
 
-hook_info = hook_metadata.hook_info.get((df_version, df_variant, operating_systems))
+hook_info = hook_metadata.hook_info.get((df_version, df_variant, operating_system))
 
 if not hook_info:
     st.write("Cannot create package for these parameters")
@@ -41,13 +41,14 @@ else:
         with st.status("Building package...", expanded=True) as status:
             root_dir = Path(__file__).parent
             build_dir = root_dir / "build"
-            package_path = root_dir / "dfint.zip"
+            package_name = f"dfint_{df_version}_{df_variant}_{operating_system}_{dict_entry.code}.zip"
+            package_path = root_dir / package_name
             build_package(
                 package_path=package_path,
                 build_dir=build_dir,
                 hook_info=hook_info,
                 parts=parts,
-                is_win=operating_systems.startswith("win"),
+                is_win=operating_system.startswith("win"),
             )
             status.update(label="Package ready!", state="complete", expanded=False)
 
