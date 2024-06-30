@@ -1,14 +1,19 @@
 import re
+from dataclasses import dataclass, field
 from typing import NamedTuple
 
 from .models import HookInfoEntry
 
 
+@dataclass
+class DFVersionOptions:
+    variants: set[str] = field(default_factory=set)
+    operating_systems: set[str] = field(default_factory=set)
+
+
 class MetadataParsingResult(NamedTuple):
-    df_versions: list[str]
-    variants: list[str]
-    operating_systems: list[str]
-    mapping: dict[tuple[str, str, str], HookInfoEntry]
+    df_version_options: dict[str, DFVersionOptions]
+    hook_info: dict[tuple[str, str, str], HookInfoEntry]
 
 
 def parse_url(url: str) -> tuple[str, str, str]:
@@ -21,21 +26,18 @@ def parse_url(url: str) -> tuple[str, str, str]:
 
 
 def parse_metadata(metadata: list[HookInfoEntry]) -> MetadataParsingResult:
-    mapping = {}
-    df_versions = set()
-    variants = set()
-    operating_systems = set()
+    version_to_metadata_mapping: dict[str, DFVersionOptions] = {}
+    hook_info = {}
 
     for item in metadata:
         version, variant, os = parse_url(item.offsets)
-        mapping[(version, variant, os)] = item
-        df_versions.add(version)
-        variants.add(variant)
-        operating_systems.add(os)
+        hook_info[(version, variant, os)] = item
+        df_version_info = version_to_metadata_mapping.get(version, DFVersionOptions())
+        df_version_info.variants.add(variant)
+        df_version_info.operating_systems.add(os)
+        version_to_metadata_mapping[version] = df_version_info
 
     return MetadataParsingResult(
-        sorted(df_versions, reverse=True),
-        sorted(variants),
-        sorted(operating_systems),
-        mapping,
+        version_to_metadata_mapping,
+        hook_info,
     )

@@ -11,15 +11,20 @@ dict_metadata = get_dict_metadata()
 
 column1, column2 = st.columns(2)
 
+df_version_options = hook_metadata.df_version_options
+
 with column1:
-    df_version: str = st.selectbox(label="DF version", options=hook_metadata.df_versions)
-    operating_systems: str = st.selectbox(label="Operating system/platform", options=hook_metadata.operating_systems)
+    df_version: str = st.selectbox(label="DF version", options=sorted(df_version_options, reverse=True))
+    operating_systems: str = st.selectbox(
+        label="Operating system/platform",
+        options=df_version_options[df_version].operating_systems,
+    )
 
 with column2:
-    df_variant: str = st.selectbox(label="DF variant", options=hook_metadata.variants)
+    df_variant: str = st.selectbox(label="DF variant", options=df_version_options[df_version].variants)
     dict_entry: DictInfoEntry = st.selectbox(label="Language", options=dict_metadata)
 
-hook_info = hook_metadata.mapping.get((df_version, df_variant, operating_systems))
+hook_info = hook_metadata.hook_info.get((df_version, df_variant, operating_systems))
 
 if not hook_info:
     st.write("Cannot create package for these parameters")
