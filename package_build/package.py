@@ -1,3 +1,4 @@
+import contextlib
 import shutil
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -5,7 +6,6 @@ from zipfile import ZIP_DEFLATED, ZipFile
 
 from package_build.download_parts import DownloadedParts
 from package_build.models import HookInfoEntry
-import contextlib
 
 
 def zip_directory(directory: Path, filename: Path) -> None:
