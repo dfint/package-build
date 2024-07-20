@@ -5,6 +5,7 @@ from zipfile import ZIP_DEFLATED, ZipFile
 
 from package_build.download_parts import DownloadedParts
 from package_build.models import HookInfoEntry
+import contextlib
 
 
 def zip_directory(directory: Path, filename: Path) -> None:
@@ -21,7 +22,9 @@ def build_package(
     parts: DownloadedParts,
     is_win: bool,
 ) -> None:
-    shutil.rmtree(build_dir)
+    with contextlib.suppress(FileNotFoundError):
+        shutil.rmtree(build_dir)
+
     build_dir.mkdir(parents=True)
 
     package_path.unlink(missing_ok=True)
