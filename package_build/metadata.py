@@ -1,4 +1,4 @@
-import datetime
+from datetime import timedelta
 
 import requests
 import streamlit as st
@@ -17,13 +17,13 @@ dict_metadata_url = metadata_url_base + "dict.json"
 hook_metadata_url = metadata_url_base + "hook_v2.json"
 
 
-@st.cache_data(show_spinner="Getting hook metadata...", ttl=datetime.timedelta(minutes=15))
+@st.cache_data(show_spinner="Getting hook metadata...", ttl=timedelta(minutes=15))
 def get_hook_metadata() -> list[HookInfoEntry]:
     data = get_json(hook_metadata_url)
     return [HookInfoEntry.model_validate(item) for item in data]
 
 
-@st.cache_data(show_spinner="Getting dict metadata...", ttl=datetime.timedelta(minutes=15))
+@st.cache_data(show_spinner="Getting dict metadata...", ttl=timedelta(minutes=15))
 def get_dict_metadata() -> list[DictInfoEntry]:
     data = get_json(dict_metadata_url)
     return [DictInfoEntry.model_validate(item) for item in data if item.get("code")]
