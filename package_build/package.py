@@ -1,5 +1,5 @@
 import shutil
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from zipfile import ZIP_DEFLATED, ZipFile
 
@@ -47,6 +47,11 @@ def build_package(
     zip_directory(build_dir, package_path)
 
 
+def get_file_modification_datetime(path: Path) -> datetime:
+    return datetime.fromtimestamp(path.stat().st_mtime, tz=timezone.utc)
+
+
+
 def package_up_to_date(package_path: Path) -> bool:
     """
     Check if the package is up to date: it exists and it was created not earlier then 12 hours ago.
@@ -55,8 +60,5 @@ def package_up_to_date(package_path: Path) -> bool:
     if not package_path.exists():
         return False
 
-    timezone = datetime.now().astimezone().tzinfo
-    modification_timestamp = package_path.stat().st_mtime
-    modification_datetime = datetime.fromtimestamp(modification_timestamp, tz=timezone)
-
-    return (modification_datetime + timedelta(hours=12)) > datetime.now(tz=timezone)
+    modification_datetime = get_file_modification_datetime(package_path)
+    return (modification_datetime + timedelta(hours=12)) > datetime.now(tz=timezone.utc)

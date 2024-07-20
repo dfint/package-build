@@ -3,19 +3,20 @@ from pathlib import Path
 import streamlit as st
 
 from package_build.download_parts import download_parts
+from package_build.file_list import show_file_list
 from package_build.metadata import get_dict_metadata, get_hook_metadata
 from package_build.models import DictInfoEntry
 from package_build.package import build_package, package_up_to_date
 from package_build.parse_metadata import parse_metadata
 
+st.header("DF localization package builder")
+st.write("Build/download a package, unpack into the game's directory with file repalacement.")
+
 hook_metadata = parse_metadata(get_hook_metadata())
-
 dict_metadata = get_dict_metadata()
-
-column1, column2 = st.columns(2)
-
 df_version_options = hook_metadata.df_version_options
 
+column1, column2 = st.columns(2)
 with column1:
     df_version: str = st.selectbox(label="DF version", options=sorted(df_version_options, reverse=True))
     operating_system: str = st.selectbox(
@@ -32,7 +33,7 @@ hook_info = hook_metadata.hook_info.get((df_version, df_variant, operating_syste
 root_dir = Path(__file__).parent
 
 if not hook_info:
-    st.write("Cannot create package for these parameters")
+    st.write("Cannot create package with these parameters")
 else:
     package_name = f"dfint_{df_version}_{df_variant}_{operating_system}_{dict_entry.code}.zip"
     package_path = root_dir / package_name
@@ -63,3 +64,5 @@ else:
             data=package_path.read_bytes(),
             mime="application/zip",
         )
+
+show_file_list(root_dir)
