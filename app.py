@@ -5,7 +5,7 @@ import streamlit as st
 from package_build.download_parts import download_parts
 from package_build.metadata import get_dict_metadata, get_hook_metadata
 from package_build.models import DictInfoEntry
-from package_build.package import build_package
+from package_build.package import build_package, package_up_to_date
 from package_build.parse_metadata import parse_metadata
 
 hook_metadata = parse_metadata(get_hook_metadata())
@@ -29,29 +29,34 @@ with column2:
 
 hook_info = hook_metadata.hook_info.get((df_version, df_variant, operating_system))
 
+root_dir = Path(__file__).parent
+
 if not hook_info:
     st.write("Cannot create package for these parameters")
 else:
-    button_generate = st.button("Generate package")
-    if button_generate:
-        with st.status("Downloading files...", expanded=True) as status:
-            parts = download_parts(hook_info, dict_entry)
-            status.update(label="Download complete!", state="complete", expanded=False)
+    package_name = f"dfint_{df_version}_{df_variant}_{operating_system}_{dict_entry.code}.zip"
+    package_path = root_dir / package_name
 
-        with st.status("Building package...", expanded=True) as status:
-            root_dir = Path(__file__).parent
-            build_dir = root_dir / "build"
-            package_name = f"dfint_{df_version}_{df_variant}_{operating_system}_{dict_entry.code}.zip"
-            package_path = root_dir / package_name
-            build_package(
-                package_path=package_path,
-                build_dir=build_dir,
-                hook_info=hook_info,
-                parts=parts,
-                is_win=operating_system.startswith("win"),
-            )
-            status.update(label="Package ready!", state="complete", expanded=False)
+    if not package_up_to_date(package_path):
+        button_generate = st.button("Generate package")
+        if button_generate:
+            with st.status("Downloading files...", expanded=True) as status:
+                parts = download_parts(hook_info, dict_entry)
+                status.update(label="Download complete!", state="complete", expanded=False)
 
+            with st.status("Building package...", expanded=True) as status:
+                build_dir = root_dir / "build"
+
+                build_package(
+                    package_path=package_path,
+                    build_dir=build_dir,
+                    hook_info=hook_info,
+                    parts=parts,
+                    is_win=operating_system.startswith("win"),
+                )
+                status.update(label="Package ready!", state="complete", expanded=False)
+
+    if package_up_to_date(package_path):
         st.download_button(
             label="Download package",
             file_name=package_path.name,
