@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-20 20:56+0300\n"
+"POT-Creation-Date: 2024-07-20 21:46+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -72,39 +72,39 @@ msgstr ""
 msgid "Download package"
 msgstr ""
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/metadata.py:21
+#: /home/insolor/Projects/DwarfFortress/package-build/package_build/metadata.py:22
 msgid "Getting hook metadata..."
 msgstr ""
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/metadata.py:27
+#: /home/insolor/Projects/DwarfFortress/package-build/package_build/metadata.py:28
 msgid "Getting dict metadata..."
 msgstr ""
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/download_parts.py:28
+#: /home/insolor/Projects/DwarfFortress/package-build/package_build/download_parts.py:29
 msgid "Downloading library..."
 msgstr ""
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/download_parts.py:31
+#: /home/insolor/Projects/DwarfFortress/package-build/package_build/download_parts.py:32
 msgid "Downloading dfhooks library..."
 msgstr ""
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/download_parts.py:34
+#: /home/insolor/Projects/DwarfFortress/package-build/package_build/download_parts.py:35
 msgid "Downloading config..."
 msgstr ""
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/download_parts.py:37
-msgid "Downloading offseets..."
+#: /home/insolor/Projects/DwarfFortress/package-build/package_build/download_parts.py:38
+msgid "Downloading offsets..."
 msgstr ""
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/download_parts.py:40
+#: /home/insolor/Projects/DwarfFortress/package-build/package_build/download_parts.py:41
 msgid "Downloading csv dictionary..."
 msgstr ""
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/download_parts.py:43
+#: /home/insolor/Projects/DwarfFortress/package-build/package_build/download_parts.py:44
 msgid "Downloading font file..."
 msgstr ""
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/download_parts.py:46
+#: /home/insolor/Projects/DwarfFortress/package-build/package_build/download_parts.py:47
 msgid "Downloading encoding config..."
 msgstr ""
 

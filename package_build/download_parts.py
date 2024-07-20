@@ -1,8 +1,9 @@
-from gettext import gettext as _
 from typing import NamedTuple
 
 import requests
 import streamlit as st
+
+from package_build.i18n import _
 
 from .models import DictInfoEntry, HookInfoEntry
 
@@ -34,7 +35,7 @@ def download_parts(hook_info: HookInfoEntry, dict_info: DictInfoEntry) -> Downlo
     st.write(_("Downloading config..."))
     config = download(hook_info.config)
 
-    st.write(_("Downloading offseets..."))
+    st.write(_("Downloading offsets..."))
     offsets = download(hook_info.offsets)
 
     st.write(_("Downloading csv dictionary..."))

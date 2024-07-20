@@ -1,10 +1,15 @@
 import gettext
+from pathlib import Path
 
-gettext.bindtextdomain("messages", "locales")
-gettext.textdomain("messages")
+locale_dir = Path(__file__).parent / "locale"
 
-locale = "en"
-lang = gettext.translation("messages", localedir="locales", languages=[locale])
+locale = "ru"
+lang = gettext.translation(
+    "messages",
+    localedir=str(locale_dir),
+    languages=[locale],
+    fallback=True,
+)
 
 lang.install()
 _ = lang.gettext

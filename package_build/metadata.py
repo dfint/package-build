@@ -1,8 +1,9 @@
 from datetime import timedelta
-from gettext import gettext as _
 
 import requests
 import streamlit as st
+
+from package_build.i18n import _
 
 from .models import DictInfoEntry, HookInfoEntry
 
