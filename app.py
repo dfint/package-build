@@ -30,7 +30,7 @@ variants_priority = {
     "classic": 2,
 }
 
-variants = sorted(df_version_options[df_version].variants, key=lambda v: variants_priority.get(v, 4))
+variants = sorted(df_version_options[df_version].variants, key=lambda v: variants_priority.get(v, 3))
 
 
 with column2:
