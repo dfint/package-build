@@ -9,6 +9,9 @@ from package_build.package import get_file_modification_datetime, package_up_to_
 def show_file_list(root_dir: Path) -> None:
     st.subheader("Package files awailable to download")
 
+    if not list(root_dir.glob("*.zip")):
+        st.write("No package files available.")
+
     column1, column2, column3 = st.columns([3, 2, 1], vertical_alignment="center")
     column1.write("Package name")
     column2.write("When created")
