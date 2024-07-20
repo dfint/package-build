@@ -24,8 +24,17 @@ with column1:
         options=df_version_options[df_version].operating_systems,
     )
 
+variants_priority = {
+    "steam": 0,
+    "itchio": 1,
+    "classic": 2,
+}
+
+variants = sorted(df_version_options[df_version].variants, key=lambda v: variants_priority.get(v, 4))
+
+
 with column2:
-    df_variant: str = st.selectbox(label="DF variant", options=df_version_options[df_version].variants)
+    df_variant: str = st.selectbox(label="DF variant", options=variants)
     dict_entry: DictInfoEntry = st.selectbox(label="Language", options=dict_metadata)
 
 hook_info = hook_metadata.hook_info.get((df_version, df_variant, operating_system))
