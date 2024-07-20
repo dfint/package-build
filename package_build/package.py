@@ -54,7 +54,6 @@ def get_file_modification_datetime(path: Path) -> datetime:
     return datetime.fromtimestamp(path.stat().st_mtime, tz=timezone.utc)
 
 
-
 def package_up_to_date(package_path: Path) -> bool:
     """
     Check if the package is up to date: it exists and it was created not earlier then 12 hours ago.
