@@ -7,7 +7,7 @@ from package_build.file_list import show_file_list
 from package_build.i18n import _, user_languages
 from package_build.metadata import get_dict_metadata, get_hook_metadata
 from package_build.models import DictInfoEntry
-from package_build.package import build_package, package_up_to_date
+from package_build.package import build_package, package_up_to_date, remove_stale_packages
 from package_build.parse_metadata import parse_metadata
 
 st.set_page_config(page_title=_("DF localization package builder"), page_icon="📦")
@@ -70,6 +70,8 @@ with column2:
 hook_info = hook_metadata.hook_info.get((df_version, df_variant, operating_system))
 
 root_dir = Path(__file__).parent
+
+remove_stale_packages(root_dir)
 
 if not hook_info:
     st.write(_("Cannot create package with these parameters"))

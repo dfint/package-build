@@ -64,3 +64,9 @@ def package_up_to_date(package_path: Path) -> bool:
 
     modification_datetime = get_file_modification_datetime(package_path)
     return (modification_datetime + timedelta(hours=12)) > datetime.now(tz=timezone.utc)
+
+
+def remove_stale_packages(root_dir: Path) -> None:
+    for package_path in root_dir.glob("*.zip"):
+        if not package_up_to_date(package_path):
+            package_path.unlink()
