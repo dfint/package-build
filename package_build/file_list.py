@@ -9,7 +9,9 @@ from package_build.package import get_file_modification_datetime, package_up_to_
 def show_file_list(root_dir: Path) -> None:
     st.subheader("Package files awailable to download")
 
-    if not list(root_dir.glob("*.zip")):
+    file_list = [file for file in root_dir.glob("*.zip") if package_up_to_date(file)]
+
+    if not file_list:
         st.write("No package files available.")
         return
 
@@ -17,10 +19,7 @@ def show_file_list(root_dir: Path) -> None:
     column1.write("Package name")
     column2.write("When created")
 
-    for package_path in sorted(root_dir.glob("*.zip")):
-        if not package_up_to_date(package_path):
-            continue
-
+    for package_path in sorted(file_list):
         column1, column2, column3 = st.columns([3, 2, 1], vertical_alignment="center")
         column1.write(package_path.relative_to(root_dir).name)
         hours_ago = (datetime.now(tz=timezone.utc) - get_file_modification_datetime(package_path)).seconds // 3600
