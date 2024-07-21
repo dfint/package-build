@@ -111,7 +111,7 @@ msgstr "Скачивание конфига кодировки..."
 
 #: /home/insolor/Projects/DwarfFortress/package-build/package_build/file_list.py:11
 msgid "Package files awailable to download"
-msgstr "Доступные для скачивания файлы пакетов"
+msgstr "Доступные для скачивания файлы"
 
 #: /home/insolor/Projects/DwarfFortress/package-build/package_build/file_list.py:14
 msgid "No package files available."
