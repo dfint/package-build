@@ -1,4 +1,4 @@
-import gettext
+import gettext as gettext_module
 import re
 from pathlib import Path
 
@@ -16,13 +16,13 @@ def get_preferred_languages() -> list[str]:
     return re.findall(r"([a-zA-Z-]{2,})", accept_language) or []
 
 
-def get_lang() -> gettext.NullTranslations:
+def get_lang() -> gettext_module.NullTranslations:
     locale_dir = Path(__file__).parent / "locale"
 
     user_languages = get_preferred_languages()
     logger.info(f"User languages: {user_languages}")
 
-    lang = gettext.translation(
+    lang = gettext_module.translation(
         "messages",
         localedir=str(locale_dir),
         languages=user_languages,
@@ -31,3 +31,21 @@ def get_lang() -> gettext.NullTranslations:
 
     lang.install()
     return lang
+
+
+class LanguageWrapper:
+    def __init__(self) -> None:
+        pass
+
+    def gettext(self, message: str) -> str:
+        lang = get_lang()
+        return lang.gettext(message)
+
+    def ngettext(self, singular: str, plural: str, n: int) -> str:
+        lang = get_lang()
+        return lang.ngettext(singular, plural, n)
+
+
+lang = LanguageWrapper()
+gettext = lang.gettext
+ngettext = lang.ngettext
