@@ -7,7 +7,11 @@ from streamlit.web.server.websocket_headers import _get_websocket_headers
 
 
 def get_preferred_languages() -> list[str]:
-    headers = _get_websocket_headers() or {}
+    try:
+        headers = _get_websocket_headers() or {}
+    except RuntimeError:
+        headers = {}
+
     accept_language = headers.get("Accept-Language") or ""
     return re.findall(r"([a-zA-Z-]{2,})", accept_language) or []
 
