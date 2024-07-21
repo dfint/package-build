@@ -17,8 +17,8 @@ def show_file_list(root_dir: Path) -> None:
         return
 
     column1, column2, column3 = st.columns([3, 2, 1], vertical_alignment="center")
-    column1.write(_("Package name"))
-    column2.write(_("When created"))
+    column1.write("**{}**".format(_("Package name")))
+    column2.write("**{}**".format(_("When created")))
 
     for package_path in sorted(file_list):
         column1, column2, column3 = st.columns([3, 2, 1], vertical_alignment="center")
