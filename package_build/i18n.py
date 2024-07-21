@@ -1,20 +1,13 @@
 import gettext
-import time
+import re
 from pathlib import Path
 
-import streamlit as st
-from streamlit_javascript import st_javascript
+from streamlit.web.server.websocket_headers import _get_websocket_headers
 
 
 def get_preferred_languages() -> list[str]:
-    with st.empty():
-        while True:
-            languages = st_javascript("window.navigator.languages")
-
-            if languages:
-                return languages
-
-            time.sleep(0.1)
+    headers = _get_websocket_headers()
+    return re.findall(r"([a-zA-Z-]{2,})", headers["Accept-Language"]) or []
 
 
 locale_dir = Path(__file__).parent / "locale"
