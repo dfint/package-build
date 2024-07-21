@@ -2,6 +2,7 @@ import gettext
 import re
 from pathlib import Path
 
+from loguru import logger
 from streamlit.web.server.websocket_headers import _get_websocket_headers
 
 
@@ -14,6 +15,7 @@ def get_preferred_languages() -> list[str]:
 locale_dir = Path(__file__).parent / "locale"
 
 user_languages = get_preferred_languages()
+logger.info(f"User languages: {user_languages}")
 
 lang = gettext.translation(
     "messages",
