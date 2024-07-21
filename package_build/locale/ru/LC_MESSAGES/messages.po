@@ -21,7 +21,7 @@ msgstr ""
 
 #: app.py:13
 msgid "DF localization package builder"
-msgstr "Сборка пакетов локализации для DF"
+msgstr "Сборщик пакетов локализации для DF"
 
 #: app.py:14
 msgid ""

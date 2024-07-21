@@ -10,6 +10,8 @@ from package_build.models import DictInfoEntry
 from package_build.package import build_package, package_up_to_date
 from package_build.parse_metadata import parse_metadata
 
+st.set_page_config(page_title=_("DF localization package builder"), page_icon="📦")
+
 st.header(_("DF localization package builder"))
 st.write(_("Build/download a package, unpack into the game's directory with file repalacement."))
 st.markdown(
