@@ -31,7 +31,7 @@ with column1:
     df_version: str = st.selectbox(label=_("DF version"), options=sorted(df_version_options, reverse=True))
     operating_system: str = st.selectbox(
         label=_("Operating system/platform"),
-        options=df_version_options[df_version].operating_systems,
+        options=sorted(df_version_options[df_version].operating_systems, reverse=True),  # show windows first
     )
 
 variants_priority = {
