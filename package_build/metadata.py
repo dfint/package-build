@@ -3,9 +3,12 @@ from datetime import timedelta
 import requests
 import streamlit as st
 
-from package_build.i18n import _
+from package_build.i18n import get_lang
 
 from .models import DictInfoEntry, HookInfoEntry
+
+lang = get_lang()
+_ = lang.gettext
 
 
 def get_json(url: str) -> list[dict]:

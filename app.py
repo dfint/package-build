@@ -4,11 +4,14 @@ import streamlit as st
 
 from package_build.download_parts import download_parts
 from package_build.file_list import show_file_list
-from package_build.i18n import _, user_languages
+from package_build.i18n import get_lang, get_preferred_languages
 from package_build.metadata import get_dict_metadata, get_hook_metadata
 from package_build.models import DictInfoEntry
 from package_build.package import build_package, package_up_to_date, remove_stale_packages
 from package_build.parse_metadata import parse_metadata
+
+lang = get_lang()
+_ = lang.gettext
 
 st.set_page_config(page_title=_("DF localization package builder"), page_icon="📦")
 
@@ -50,6 +53,8 @@ def language_ordering(dict_info_entry: DictInfoEntry) -> tuple[int, str]:
 
     All other languages are sorted by their codes.
     """
+    user_languages = get_preferred_languages()
+
     def get_language_priority(language_code: str) -> int:
         if language_code.startswith("en"):
             return 1000
