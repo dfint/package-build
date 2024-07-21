@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-21 12:53+0300\n"
+"POT-Creation-Date: 2024-07-21 14:58+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,64 +18,64 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: app.py:13
+#: app.py:13 app.py:15
 msgid "DF localization package builder"
 msgstr ""
 
-#: app.py:14
+#: app.py:16
 msgid ""
 "Build/download a package, unpack into the game's directory with file "
 "repalacement."
 msgstr ""
 
-#: app.py:17
+#: app.py:19
 msgid ""
 "It's recommended to use [dfint-installer](https://github.com/dfint/"
 "installer) instead of using this app. Use the package builder only if the "
 "installer doesn't work for you or you have some other issues with it."
 msgstr ""
 
-#: app.py:29
+#: app.py:31
 msgid "DF version"
 msgstr ""
 
-#: app.py:31
+#: app.py:33
 msgid "Operating system/platform"
 msgstr ""
 
-#: app.py:45
+#: app.py:67
 msgid "DF variant"
 msgstr ""
 
-#: app.py:46
+#: app.py:68
 msgid "Language"
 msgstr ""
 
-#: app.py:53
+#: app.py:75
 msgid "Cannot create package with these parameters"
 msgstr ""
 
-#: app.py:59
+#: app.py:81
 msgid "Generate package"
 msgstr ""
 
-#: app.py:61
+#: app.py:83
 msgid "Downloading files..."
 msgstr ""
 
-#: app.py:63
+#: app.py:85
 msgid "Downloading complete!"
 msgstr ""
 
-#: app.py:65
+#: app.py:87
 msgid "Building package..."
 msgstr ""
 
-#: app.py:75
+#: app.py:97
 msgid "Package is ready!"
 msgstr ""
 
-#: app.py:79
+#: app.py:101
 msgid "Download package"
 msgstr ""
 
