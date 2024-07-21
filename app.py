@@ -4,7 +4,7 @@ import streamlit as st
 
 from package_build.download_parts import download_parts
 from package_build.file_list import show_file_list
-from package_build.i18n import _
+from package_build.i18n import _, user_languages
 from package_build.metadata import get_dict_metadata, get_hook_metadata
 from package_build.models import DictInfoEntry
 from package_build.package import build_package, package_up_to_date
@@ -41,9 +41,26 @@ variants_priority = {
 variants = sorted(df_version_options[df_version].variants, key=lambda v: variants_priority.get(v, 3))
 
 
+def language_ordering(dict_info_entry: DictInfoEntry) -> tuple[int, str]:
+    """
+    Set max priority to user's languages (according to their index in the user's browser settings)
+    and the lowest priority to English.
+
+    All other languages are sorted by their codes.
+    """
+    try:
+        language_priority = user_languages.index(dict_info_entry.code) - len(user_languages)
+    except ValueError:
+        language_priority = 0
+
+    priority = 10000 if dict_info_entry.code.startswith("en") else language_priority
+    return (priority, dict_info_entry.code)
+
+
+
 with column2:
     df_variant: str = st.selectbox(label=_("DF variant"), options=variants)
-    dict_entry: DictInfoEntry = st.selectbox(label=_("Language"), options=dict_metadata)
+    dict_entry: DictInfoEntry = st.selectbox(label=_("Language"), options=sorted(dict_metadata, key=language_ordering))
 
 hook_info = hook_metadata.hook_info.get((df_version, df_variant, operating_system))
 

@@ -13,12 +13,12 @@ def get_preferred_languages() -> list[str]:
 
 locale_dir = Path(__file__).parent / "locale"
 
-languages = get_preferred_languages()
+user_languages = get_preferred_languages()
 
 lang = gettext.translation(
     "messages",
     localedir=str(locale_dir),
-    languages=languages,
+    languages=user_languages,
     fallback=True,
 )
 
