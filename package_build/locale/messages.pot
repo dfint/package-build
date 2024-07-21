@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-21 14:58+0300\n"
+"POT-Creation-Date: 2024-07-21 15:45+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,31 +51,35 @@ msgstr ""
 msgid "Language"
 msgstr ""
 
-#: app.py:75
+#: app.py:74
+msgid "Removing stale packages..."
+msgstr ""
+
+#: app.py:78
 msgid "Cannot create package with these parameters"
 msgstr ""
 
-#: app.py:81
+#: app.py:84
 msgid "Generate package"
 msgstr ""
 
-#: app.py:83
+#: app.py:86
 msgid "Downloading files..."
 msgstr ""
 
-#: app.py:85
+#: app.py:88
 msgid "Downloading complete!"
 msgstr ""
 
-#: app.py:87
+#: app.py:90
 msgid "Building package..."
 msgstr ""
 
-#: app.py:97
+#: app.py:100
 msgid "Package is ready!"
 msgstr ""
 
-#: app.py:101
+#: app.py:104
 msgid "Download package"
 msgstr ""
 

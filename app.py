@@ -71,7 +71,8 @@ hook_info = hook_metadata.hook_info.get((df_version, df_variant, operating_syste
 
 root_dir = Path(__file__).parent
 
-remove_stale_packages(root_dir)
+with st.spinner(_("Removing stale packages...")):
+    remove_stale_packages(root_dir)
 
 if not hook_info:
     st.write(_("Cannot create package with these parameters"))
