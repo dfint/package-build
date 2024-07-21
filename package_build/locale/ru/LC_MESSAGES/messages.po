@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-20 20:56+0300\n"
+"POT-Creation-Date: 2024-07-21 12:53+0300\n"
 "PO-Revision-Date: 2024-07-20 21:05+0300\n"
 "Last-Translator: insolor <insolor@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -27,85 +27,94 @@ msgstr "Сборка пакетов локализации для DF"
 msgid ""
 "Build/download a package, unpack into the game's directory with file "
 "repalacement."
-msgstr "Соберите и скачайте пакет, распакуйте в папку игры с заменой файлов"
+msgstr "Соберите и скачайте пакет, распакуйте в папку игры с заменой файлов."
 
-#: app.py:22
+#: app.py:17
+msgid ""
+"It's recommended to use [dfint-installer](https://github.com/dfint/"
+"installer) instead of using this app. Use the package builder only if the "
+"installer doesn't work for you or you have some other issues with it."
+msgstr "Рекомендуется использовать [dfint-installer](https://github.com/dfint/"
+"installer) вместо этого приложения. Используйте сборку пакетов только если инстеллер у вас не работает "
+"или с ним возникают какие-то другие проблемы."
+
+#: app.py:29
 msgid "DF version"
 msgstr "Версия DF"
 
-#: app.py:24
+#: app.py:31
 msgid "Operating system/platform"
 msgstr "Операционная система/платформа"
 
-#: app.py:38
+#: app.py:45
 msgid "DF variant"
 msgstr "Вариант DF"
 
-#: app.py:39
+#: app.py:46
 msgid "Language"
 msgstr "Язык"
 
-#: app.py:46
+#: app.py:53
 msgid "Cannot create package with these parameters"
 msgstr "Невозможно собрать пакет с выбранными параметрами"
 
-#: app.py:52
+#: app.py:59
 msgid "Generate package"
 msgstr "Собрать пакет"
 
-#: app.py:54
+#: app.py:61
 msgid "Downloading files..."
 msgstr "Загрузка файлов..."
 
-#: app.py:56
+#: app.py:63
 msgid "Downloading complete!"
 msgstr "Загрузка завершена!"
 
-#: app.py:58
+#: app.py:65
 msgid "Building package..."
 msgstr "Сборка пакета..."
 
-#: app.py:68
+#: app.py:75
 msgid "Package is ready!"
 msgstr "Пакет готов!"
 
-#: app.py:72
+#: app.py:79
 msgid "Download package"
 msgstr "Скачать пакет"
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/metadata.py:21
+#: /home/insolor/Projects/DwarfFortress/package-build/package_build/metadata.py:22
 msgid "Getting hook metadata..."
 msgstr "Получение метаданных хука..."
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/metadata.py:27
+#: /home/insolor/Projects/DwarfFortress/package-build/package_build/metadata.py:28
 msgid "Getting dict metadata..."
 msgstr "Получение метаданных слованя..."
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/download_parts.py:28
+#: /home/insolor/Projects/DwarfFortress/package-build/package_build/download_parts.py:29
 msgid "Downloading library..."
 msgstr "Скачивание библиотеки..."
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/download_parts.py:31
+#: /home/insolor/Projects/DwarfFortress/package-build/package_build/download_parts.py:32
 msgid "Downloading dfhooks library..."
 msgstr "Скачивание библиотеки dfhooks..."
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/download_parts.py:34
+#: /home/insolor/Projects/DwarfFortress/package-build/package_build/download_parts.py:35
 msgid "Downloading config..."
 msgstr "Скачивание конфига..."
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/download_parts.py:37
+#: /home/insolor/Projects/DwarfFortress/package-build/package_build/download_parts.py:38
 msgid "Downloading offsets..."
 msgstr "Скачивание офсетов..."
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/download_parts.py:40
+#: /home/insolor/Projects/DwarfFortress/package-build/package_build/download_parts.py:41
 msgid "Downloading csv dictionary..."
 msgstr "Скачивание csv словаря..."
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/download_parts.py:43
+#: /home/insolor/Projects/DwarfFortress/package-build/package_build/download_parts.py:44
 msgid "Downloading font file..."
 msgstr "Скачивание файла шрифта..."
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/download_parts.py:46
+#: /home/insolor/Projects/DwarfFortress/package-build/package_build/download_parts.py:47
 msgid "Downloading encoding config..."
 msgstr "Скачивание конфига кодировки..."
 
@@ -113,23 +122,23 @@ msgstr "Скачивание конфига кодировки..."
 msgid "Package files awailable to download"
 msgstr "Доступные для скачивания файлы"
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/file_list.py:14
+#: /home/insolor/Projects/DwarfFortress/package-build/package_build/file_list.py:16
 msgid "No package files available."
 msgstr "Нет доступных пакетов"
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/file_list.py:18
+#: /home/insolor/Projects/DwarfFortress/package-build/package_build/file_list.py:20
 msgid "Package name"
 msgstr "Имя пакета"
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/file_list.py:19
+#: /home/insolor/Projects/DwarfFortress/package-build/package_build/file_list.py:21
 msgid "When created"
 msgstr "Создан"
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/file_list.py:29
+#: /home/insolor/Projects/DwarfFortress/package-build/package_build/file_list.py:28
 msgid "less than an hour ago"
 msgstr "меньше часа назад"
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/file_list.py:31
+#: /home/insolor/Projects/DwarfFortress/package-build/package_build/file_list.py:30
 #, python-format
 msgid "%(num)d hour ago"
 msgid_plural "%(num)d hours ago"
@@ -137,6 +146,6 @@ msgstr[0] "%(num)d час назад"
 msgstr[1] "%(num)d часа назад"
 msgstr[2] "%(num)d часов назад"
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/file_list.py:34
+#: /home/insolor/Projects/DwarfFortress/package-build/package_build/file_list.py:33
 msgid "Download"
 msgstr "Скачать"

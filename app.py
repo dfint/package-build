@@ -12,6 +12,13 @@ from package_build.parse_metadata import parse_metadata
 
 st.header(_("DF localization package builder"))
 st.write(_("Build/download a package, unpack into the game's directory with file repalacement."))
+st.markdown(
+    _(
+        "It's recommended to use [dfint-installer](https://github.com/dfint/installer) instead of using this "
+        "app. Use the package builder only if the installer doesn't work for you or you have some other issues "
+        "with it.",
+    ),
+)
 
 hook_metadata = parse_metadata(get_hook_metadata())
 dict_metadata = get_dict_metadata()
