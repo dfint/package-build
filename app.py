@@ -48,13 +48,16 @@ def language_ordering(dict_info_entry: DictInfoEntry) -> tuple[int, str]:
 
     All other languages are sorted by their codes.
     """
-    try:
-        language_priority = user_languages.index(dict_info_entry.code) - len(user_languages)
-    except ValueError:
-        language_priority = 0
+    def get_language_priority(language_code: str) -> int:
+        if language_code.startswith("en"):
+            return 1000
 
-    priority = 10000 if dict_info_entry.code.startswith("en") else language_priority
-    return (priority, dict_info_entry.code)
+        try:
+            return user_languages.index(dict_info_entry.code) - len(user_languages)
+        except ValueError:
+            return 0
+
+    return (get_language_priority(dict_info_entry.code), dict_info_entry.code)
 
 
 
