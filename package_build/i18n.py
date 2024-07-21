@@ -24,7 +24,7 @@ def get_lang() -> gettext_module.NullTranslations:
 
     lang = gettext_module.translation(
         "messages",
-        localedir=str(locale_dir),
+        localedir=locale_dir,
         languages=user_languages,
         fallback=True,
     )
