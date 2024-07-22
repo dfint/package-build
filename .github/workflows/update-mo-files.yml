@@ -31,11 +31,9 @@ jobs:
       - name: Update mo files
         run: poe msgfmt
 
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v6
+      - name: Push changes to the repository
+        uses: EndBug/add-and-commit@v9.1.4
         with:
-          title: Update source language file
-          commit-message: Update source language file
-          author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-          add-paths: package_build/locale/**/messages.mo
-          delete-branch: true
+          author_name: github-actions[bot]
+          author_email: 41898282+github-actions[bot]@users.noreply.github.com
+          add: "package_build/locale/*"
