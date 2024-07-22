@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-21 15:45+0300\n"
+"POT-Creation-Date: 2024-07-22 18:19+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,68 +18,68 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: app.py:13 app.py:15
+#: app.py:14 app.py:16
 msgid "DF localization package builder"
 msgstr ""
 
-#: app.py:16
+#: app.py:17
 msgid ""
 "Build/download a package, unpack into the game's directory with file "
 "repalacement."
 msgstr ""
 
-#: app.py:19
+#: app.py:20
 msgid ""
 "It's recommended to use [dfint-installer](https://github.com/dfint/"
 "installer) instead of using this app. Use the package builder only if the "
 "installer doesn't work for you or you have some other issues with it."
 msgstr ""
 
-#: app.py:31
+#: app.py:32
 msgid "DF version"
 msgstr ""
 
-#: app.py:33
+#: app.py:34
 msgid "Operating system/platform"
 msgstr ""
 
-#: app.py:67
+#: app.py:70
 msgid "DF variant"
 msgstr ""
 
-#: app.py:68
+#: app.py:71
 msgid "Language"
 msgstr ""
 
-#: app.py:74
+#: app.py:77
 msgid "Removing stale packages..."
 msgstr ""
 
-#: app.py:78
+#: app.py:81
 msgid "Cannot create package with these parameters"
 msgstr ""
 
-#: app.py:84
+#: app.py:87
 msgid "Generate package"
 msgstr ""
 
-#: app.py:86
+#: app.py:89
 msgid "Downloading files..."
 msgstr ""
 
-#: app.py:88
+#: app.py:91
 msgid "Downloading complete!"
 msgstr ""
 
-#: app.py:90
+#: app.py:93
 msgid "Building package..."
 msgstr ""
 
-#: app.py:100
+#: app.py:103
 msgid "Package is ready!"
 msgstr ""
 
-#: app.py:104
+#: app.py:107
 msgid "Download package"
 msgstr ""
 
@@ -119,33 +119,33 @@ msgstr ""
 msgid "Downloading encoding config..."
 msgstr ""
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/file_list.py:11
+#: /home/insolor/Projects/DwarfFortress/package-build/package_build/file_list.py:12
 msgid "Package files awailable to download"
 msgstr ""
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/file_list.py:16
+#: /home/insolor/Projects/DwarfFortress/package-build/package_build/file_list.py:17
 msgid "No package files available."
 msgstr ""
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/file_list.py:20
+#: /home/insolor/Projects/DwarfFortress/package-build/package_build/file_list.py:21
 msgid "Package name"
 msgstr ""
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/file_list.py:21
+#: /home/insolor/Projects/DwarfFortress/package-build/package_build/file_list.py:22
 msgid "When created"
 msgstr ""
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/file_list.py:28
+#: /home/insolor/Projects/DwarfFortress/package-build/package_build/file_list.py:29
 msgid "less than an hour ago"
 msgstr ""
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/file_list.py:30
+#: /home/insolor/Projects/DwarfFortress/package-build/package_build/file_list.py:31
 #, python-format
 msgid "%(num)d hour ago"
 msgid_plural "%(num)d hours ago"
 msgstr[0] ""
 msgstr[1] ""
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/file_list.py:33
+#: /home/insolor/Projects/DwarfFortress/package-build/package_build/file_list.py:34
 msgid "Download"
 msgstr ""
