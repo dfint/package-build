@@ -1,4 +1,4 @@
-name: Update App Source Language File
+name: Update mo files
 
 on:
   push:
