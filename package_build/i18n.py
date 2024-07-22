@@ -37,12 +37,10 @@ class LanguageWrapper:
 
     def gettext(self, message: str) -> str:
         lang = get_lang(tuple(get_preferred_languages()))
-        lang.install()
         return lang.gettext(message)
 
     def ngettext(self, singular: str, plural: str, n: int) -> str:
         lang = get_lang(tuple(get_preferred_languages()))
-        lang.install()
         return lang.ngettext(singular, plural, n)
 
 
