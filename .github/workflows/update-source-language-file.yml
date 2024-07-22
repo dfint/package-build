@@ -26,11 +26,11 @@ jobs:
       - name: Install Poethepoet
         run: pipx install poethepoet
 
-      - name: Extract localizable strings
-        run: poe xgettext
-
       - name: Install gettext utils
         run: sudo apt install gettext
+
+      - name: Extract localizable strings
+        run: poe xgettext
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
