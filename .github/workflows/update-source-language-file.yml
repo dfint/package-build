@@ -1,0 +1,42 @@
+name: Update App Source Language File
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "app.py"
+      - "package_build/*.py"
+      - ".github/workflows/update-source-language-file.yml"
+
+  workflow_dispatch:
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install Poetry
+        run: pipx install poetry
+
+      - name: Install dependencies
+        run: poetry install
+
+      - name: Extract localizable strings
+        run: poe xgettext
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          title: Update source language file
+          commit-message: Update source language file
+          author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+          add-paths: package_build/locale/messages.pot
+          delete-branch: true
