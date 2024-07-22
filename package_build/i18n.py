@@ -32,8 +32,6 @@ def get_lang(languages: tuple[str]) -> gettext_module.NullTranslations:
 
 
 class LanguageWrapper:
-    def __init__(self) -> None:
-        pass
 
     def gettext(self, message: str) -> str:
         lang = get_lang(tuple(get_preferred_languages()))
