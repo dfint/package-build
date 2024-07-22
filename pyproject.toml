@@ -24,7 +24,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poe.tasks]
 run = "streamlit run app.py"
-xgettext.shell = "xgettext -d messages -o package_build/locale/messages.pot app.py package_build/*.py --from-code UTF-8"
+xgettext.shell = "xgettext -d messages -o package_build/locale/messages.pot app.py package_build/*.py --from-code UTF-8 --omit-header"
 msgfmt = "find ./package_build/locale -name \\*.po -execdir msgfmt messages.po -o messages.mo \\;"
 
 [tool.ruff]
