@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-22 18:19+0300\n"
+"POT-Creation-Date: 2024-07-22 15:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -83,69 +83,69 @@ msgstr ""
 msgid "Download package"
 msgstr ""
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/metadata.py:22
-msgid "Getting hook metadata..."
-msgstr ""
-
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/metadata.py:28
-msgid "Getting dict metadata..."
-msgstr ""
-
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/download_parts.py:29
+#: /home/runner/work/package-build/package-build/package_build/download_parts.py:29
 msgid "Downloading library..."
 msgstr ""
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/download_parts.py:32
+#: /home/runner/work/package-build/package-build/package_build/download_parts.py:32
 msgid "Downloading dfhooks library..."
 msgstr ""
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/download_parts.py:35
+#: /home/runner/work/package-build/package-build/package_build/download_parts.py:35
 msgid "Downloading config..."
 msgstr ""
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/download_parts.py:38
+#: /home/runner/work/package-build/package-build/package_build/download_parts.py:38
 msgid "Downloading offsets..."
 msgstr ""
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/download_parts.py:41
+#: /home/runner/work/package-build/package-build/package_build/download_parts.py:41
 msgid "Downloading csv dictionary..."
 msgstr ""
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/download_parts.py:44
+#: /home/runner/work/package-build/package-build/package_build/download_parts.py:44
 msgid "Downloading font file..."
 msgstr ""
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/download_parts.py:47
+#: /home/runner/work/package-build/package-build/package_build/download_parts.py:47
 msgid "Downloading encoding config..."
 msgstr ""
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/file_list.py:12
+#: /home/runner/work/package-build/package-build/package_build/file_list.py:12
 msgid "Package files awailable to download"
 msgstr ""
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/file_list.py:17
+#: /home/runner/work/package-build/package-build/package_build/file_list.py:17
 msgid "No package files available."
 msgstr ""
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/file_list.py:21
+#: /home/runner/work/package-build/package-build/package_build/file_list.py:21
 msgid "Package name"
 msgstr ""
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/file_list.py:22
+#: /home/runner/work/package-build/package-build/package_build/file_list.py:22
 msgid "When created"
 msgstr ""
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/file_list.py:29
+#: /home/runner/work/package-build/package-build/package_build/file_list.py:29
 msgid "less than an hour ago"
 msgstr ""
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/file_list.py:31
+#: /home/runner/work/package-build/package-build/package_build/file_list.py:31
 #, python-format
 msgid "%(num)d hour ago"
 msgid_plural "%(num)d hours ago"
 msgstr[0] ""
 msgstr[1] ""
 
-#: /home/insolor/Projects/DwarfFortress/package-build/package_build/file_list.py:34
+#: /home/runner/work/package-build/package-build/package_build/file_list.py:34
 msgid "Download"
+msgstr ""
+
+#: /home/runner/work/package-build/package-build/package_build/metadata.py:22
+msgid "Getting hook metadata..."
+msgstr ""
+
+#: /home/runner/work/package-build/package-build/package_build/metadata.py:28
+msgid "Getting dict metadata..."
 msgstr ""
