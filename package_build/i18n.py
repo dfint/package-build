@@ -18,7 +18,7 @@ def get_preferred_languages() -> list[str]:
 
 
 @lru_cache(maxsize=128, typed=False)
-def get_lang(languages: tuple[str]) -> gettext_module.NullTranslations:
+def _get_lang(languages: tuple[str]) -> gettext_module.NullTranslations:
     logger.info(f"Languages: {languages}")
     locale_dir = Path(__file__).parent / "locale"
 
@@ -32,13 +32,16 @@ def get_lang(languages: tuple[str]) -> gettext_module.NullTranslations:
 
 
 class LanguageWrapper:
+    @staticmethod
+    def _get_lang() -> gettext_module.NullTranslations:
+        return _get_lang(tuple(get_preferred_languages()))
 
     def gettext(self, message: str) -> str:
-        lang = get_lang(tuple(get_preferred_languages()))
+        lang = self._get_lang()
         return lang.gettext(message)
 
     def ngettext(self, singular: str, plural: str, n: int) -> str:
-        lang = get_lang(tuple(get_preferred_languages()))
+        lang = self._get_lang()
         return lang.ngettext(singular, plural, n)
 
 
