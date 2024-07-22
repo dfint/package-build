@@ -1,5 +1,6 @@
 import gettext as gettext_module
 import re
+from functools import lru_cache
 from pathlib import Path
 
 from loguru import logger
@@ -16,21 +17,18 @@ def get_preferred_languages() -> list[str]:
     return re.findall(r"([a-zA-Z-]{2,})", accept_language) or []
 
 
-def get_lang() -> gettext_module.NullTranslations:
+@lru_cache(maxsize=128, typed=False)
+def get_lang(languages: list[str]) -> gettext_module.NullTranslations:
+    logger.info(f"Languages: {languages}")
     locale_dir = Path(__file__).parent / "locale"
 
-    user_languages = get_preferred_languages()
-    logger.info(f"User languages: {user_languages}")
-
-    lang = gettext_module.translation(
+    return gettext_module.translation(
         "messages",
         localedir=locale_dir,
-        languages=user_languages,
+        languages=languages,
         fallback=True,
     )
 
-    lang.install()
-    return lang
 
 
 class LanguageWrapper:
@@ -38,11 +36,13 @@ class LanguageWrapper:
         pass
 
     def gettext(self, message: str) -> str:
-        lang = get_lang()
+        lang = get_lang(tuple(get_preferred_languages()))
+        lang.install()
         return lang.gettext(message)
 
     def ngettext(self, singular: str, plural: str, n: int) -> str:
-        lang = get_lang()
+        lang = get_lang(tuple(get_preferred_languages()))
+        lang.install()
         return lang.ngettext(singular, plural, n)
 
 
