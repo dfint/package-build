@@ -18,7 +18,7 @@ def get_preferred_languages() -> list[str]:
 
 
 @lru_cache(maxsize=128, typed=False)
-def get_lang(languages: list[str]) -> gettext_module.NullTranslations:
+def get_lang(languages: tuple[str]) -> gettext_module.NullTranslations:
     logger.info(f"Languages: {languages}")
     locale_dir = Path(__file__).parent / "locale"
 
