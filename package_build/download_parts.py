@@ -3,7 +3,7 @@ from typing import NamedTuple
 import requests
 import streamlit as st
 
-from package_build.i18n import get_lang
+from package_build.i18n import gettext as _
 
 from .models import DictInfoEntry, HookInfoEntry
 
@@ -26,9 +26,6 @@ class DownloadedParts(NamedTuple):
 
 # @st.cache_data
 def download_parts(hook_info: HookInfoEntry, dict_info: DictInfoEntry) -> DownloadedParts:
-    lang = get_lang()
-    _ = lang.gettext
-
     st.write(_("Downloading library..."))
     library = download(hook_info.lib)
 
