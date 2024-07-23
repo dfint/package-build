@@ -110,4 +110,7 @@ else:
             mime="application/zip",
         )
 
-show_file_list(root_dir)
+enable_filter = st.checkbox(label=_("Filter available files by DF variant, operating system, language"), value=True)
+glob_filter = f"*_{df_variant}_{operating_system}_{dict_entry.code}.zip" if enable_filter else "*.zip"
+
+show_file_list(root_dir, glob_filter=glob_filter)
