@@ -31,7 +31,9 @@ jobs:
         run: sudo apt install gettext
 
       - name: Extract localizable strings
-        run: poe xgettext
+        run: |
+          poe xgettext
+          python3 ci-scripts/no_pot_creation_date.py
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
