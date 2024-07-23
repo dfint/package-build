@@ -63,6 +63,10 @@ msgstr ""
 msgid "Download package"
 msgstr ""
 
+#: app.py:113
+msgid "Filter available files by DF variant, operating system, language"
+msgstr ""
+
 #: package_build/download_parts.py:29
 msgid "Downloading library..."
 msgstr ""
