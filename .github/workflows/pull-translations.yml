@@ -34,5 +34,5 @@ jobs:
         title: Update translation file(s) of the app
         commit-message: Update translation file(s) of the app
         author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-        add-paths: locale/*
+        add-paths: package_build/locale/*
         delete-branch: true
