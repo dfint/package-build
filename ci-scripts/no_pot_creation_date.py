@@ -1,4 +1,4 @@
-from pathlib import Path
+from pathlib import Path  # noqa: INP001
 
 pot_path = Path(__file__).parent.parent / "package_build" / "locale" / "messages.pot"
 
