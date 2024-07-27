@@ -91,7 +91,7 @@ msgstr ""
 msgid "Downloading encoding config..."
 msgstr ""
 
-msgid "Package files awailable to download"
+msgid "Package files available to download"
 msgstr ""
 
 msgid "No package files available."
