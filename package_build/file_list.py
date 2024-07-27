@@ -17,12 +17,12 @@ def show_file_list(root_dir: Path, glob_filter: str) -> None:
         st.write(_("No package files available."))
         return
 
-    column1, column2, column3 = st.columns([3, 2, 1], vertical_alignment="center")
+    column1, column2, column3 = st.columns([4, 3, 2], vertical_alignment="center")
     column1.write("**{}**".format(_("Package name")))
     column2.write("**{}**".format(_("When created")))
 
     for package_path in sorted(file_list):
-        column1, column2, column3 = st.columns([3, 2, 1], vertical_alignment="center")
+        column1, column2, column3 = st.columns([4, 3, 2], vertical_alignment="center")
         column1.write(package_path.relative_to(root_dir).name)
         hours_ago = (datetime.now(tz=timezone.utc) - get_file_modification_datetime(package_path)).seconds // 3600
         if hours_ago == 0:
