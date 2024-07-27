@@ -101,7 +101,7 @@ msgstr "Скачивание файла шрифта..."
 msgid "Downloading encoding config..."
 msgstr "Скачивание конфига кодировки..."
 
-msgid "Package files awailable to download"
+msgid "Package files available to download"
 msgstr "Доступные для скачивания файлы"
 
 msgid "No package files available."
@@ -130,5 +130,5 @@ msgstr "Скачать"
 msgid "Getting hook metadata..."
 msgstr "Получение метаданных хука..."
 
-msgid "Getting dict metadata..."
-msgstr "Получение метаданных слованя..."
+msgid "Getting dictionary metadata..."
+msgstr "Получение метаданных словаря..."
