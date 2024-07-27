@@ -9,7 +9,7 @@ from package_build.package import get_file_modification_datetime, package_up_to_
 
 
 def show_file_list(root_dir: Path, glob_filter: str) -> None:
-    st.subheader(_("Package files awailable to download"))
+    st.subheader(_("Package files available to download"))
 
     file_list = [file for file in root_dir.glob(glob_filter) if package_up_to_date(file)]
 
