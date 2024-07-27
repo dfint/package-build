@@ -118,5 +118,5 @@ msgstr ""
 msgid "Getting hook metadata..."
 msgstr ""
 
-msgid "Getting dict metadata..."
+msgid "Getting dictionary metadata..."
 msgstr ""
