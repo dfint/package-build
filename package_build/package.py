@@ -54,7 +54,7 @@ def get_file_modification_datetime(path: Path) -> datetime:
     return datetime.fromtimestamp(path.stat().st_mtime, tz=timezone.utc)
 
 
-def package_up_to_date(package_path: Path) -> bool:
+def package_up_to_date(package_path: Path, lifetime: timedelta = timedelta(hours=12)) -> bool:
     """
     Check if the package is up to date: it exists and it was created not earlier then 12 hours ago.
     """
@@ -63,10 +63,10 @@ def package_up_to_date(package_path: Path) -> bool:
         return False
 
     modification_datetime = get_file_modification_datetime(package_path)
-    return (modification_datetime + timedelta(hours=12)) > datetime.now(tz=timezone.utc)
+    return (modification_datetime + lifetime) > datetime.now(tz=timezone.utc)
 
 
 def remove_stale_packages(root_dir: Path) -> None:
     for package_path in root_dir.glob("*.zip"):
-        if not package_up_to_date(package_path):
+        if not package_up_to_date(package_path, lifetime=timedelta(hours=13)):
             package_path.unlink(missing_ok=True)
