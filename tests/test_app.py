@@ -7,7 +7,7 @@ from streamlit.testing.v1 import AppTest
 from package_build.models import DictInfoEntry, HookInfoEntry
 
 
-@pytest.fixture()
+@pytest.fixture
 @patch("package_build.metadata.get_hook_metadata")
 @patch("package_build.metadata.get_dict_metadata")
 def apptest(get_dict_metadata: Callable, get_hook_metadata: Callable) -> AppTest:
