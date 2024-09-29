@@ -670,9 +670,9 @@ files = [
 
 [package.dependencies]
 numpy = [
+    {version = ">=1.26.0", markers = "python_version >= \"3.12\""},
     {version = ">=1.22.4", markers = "python_version < \"3.11\""},
     {version = ">=1.23.2", markers = "python_version == \"3.11\""},
-    {version = ">=1.26.0", markers = "python_version >= \"3.12\""},
 ]
 python-dateutil = ">=2.8.2"
 pytz = ">=2020.1"
@@ -901,8 +901,8 @@ files = [
 annotated-types = ">=0.4.0"
 pydantic-core = "2.20.1"
 typing-extensions = [
-    {version = ">=4.6.1", markers = "python_version < \"3.13\""},
     {version = ">=4.12.2", markers = "python_version >= \"3.13\""},
+    {version = ">=4.6.1", markers = "python_version < \"3.13\""},
 ]
 
 [package.extras]
@@ -1358,6 +1358,25 @@ watchdog = {version = ">=2.1.5,<5", markers = "platform_system != \"Darwin\""}
 snowflake = ["snowflake-connector-python (>=2.8.0)", "snowflake-snowpark-python[modin] (>=1.17.0)"]
 
 [[package]]
+name = "streamlit-awesome-table"
+version = "0.1.0"
+description = "Awesome Table is a component to display a table in Streamlit with search and order."
+optional = false
+python-versions = ">=3.6"
+files = []
+develop = false
+
+[package.dependencies]
+pandas = "*"
+streamlit = ">=0.63"
+
+[package.source]
+type = "git"
+url = "https://github.com/caiodearaujo/streamlit-awesome-table"
+reference = "16ec13128ad1ca3be43edbcd60f9a1aae9da01d7"
+resolved_reference = "16ec13128ad1ca3be43edbcd60f9a1aae9da01d7"
+
+[[package]]
 name = "tenacity"
 version = "8.5.0"
 description = "Retry code until it succeeds"
@@ -1517,4 +1536,4 @@ dev = ["black (>=19.3b0)", "pytest (>=4.6.2)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "790cd7d39cccd9e65aa3005d708704ccc2d00947f36b39dd5ebf07133d01cd07"
+content-hash = "f195e156d77f393ebd2821a9beddffb35674e6a1cff561d20a085cd210d1c15b"
