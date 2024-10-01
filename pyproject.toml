@@ -12,7 +12,7 @@ streamlit = "^1.38.0"
 requests = "^2.32.3"
 pydantic = "^2.7.4"
 loguru = "^0.7.2"
-streamlit-awesome-table = {git = "https://github.com/caiodearaujo/streamlit-awesome-table", rev = "16ec13128ad1ca3be43edbcd60f9a1aae9da01d7"}
+streamlit-awesome-table = {url = "https://github.com/insolor/streamlit-awesome-table/releases/download/0.1.1/streamlit_awesome_table-0.1.1-py3-none-any.whl"}
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.6.3"

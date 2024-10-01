@@ -1359,22 +1359,21 @@ snowflake = ["snowflake-connector-python (>=2.8.0)", "snowflake-snowpark-python[
 
 [[package]]
 name = "streamlit-awesome-table"
-version = "0.1.0"
+version = "0.1.1"
 description = "Awesome Table is a component to display a table in Streamlit with search and order."
 optional = false
 python-versions = ">=3.6"
-files = []
-develop = false
+files = [
+    {file = "streamlit_awesome_table-0.1.1-py3-none-any.whl", hash = "sha256:20359f32d95e2805e81e52a91da2bf89da28d0196d1d9fb64ba351d8cdcecf49"},
+]
 
 [package.dependencies]
 pandas = "*"
 streamlit = ">=0.63"
 
 [package.source]
-type = "git"
-url = "https://github.com/caiodearaujo/streamlit-awesome-table"
-reference = "16ec13128ad1ca3be43edbcd60f9a1aae9da01d7"
-resolved_reference = "16ec13128ad1ca3be43edbcd60f9a1aae9da01d7"
+type = "url"
+url = "https://github.com/insolor/streamlit-awesome-table/releases/download/0.1.1/streamlit_awesome_table-0.1.1-py3-none-any.whl"
 
 [[package]]
 name = "tenacity"
@@ -1536,4 +1535,4 @@ dev = ["black (>=19.3b0)", "pytest (>=4.6.2)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "f195e156d77f393ebd2821a9beddffb35674e6a1cff561d20a085cd210d1c15b"
+content-hash = "1174591e58e7d9dcf025519b741e99e284caef862e5d6a4099f8f0a20986ed5b"
