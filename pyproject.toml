@@ -11,7 +11,7 @@ python = "^3.10"
 streamlit = "^1.40.2"
 requests = "^2.32.3"
 pydantic = "^2.10.2"
-loguru = "^0.7.2"
+loguru = "^0.7.3"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.8.1"
