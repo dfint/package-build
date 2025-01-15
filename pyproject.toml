@@ -35,7 +35,6 @@ line-length = 120
 [tool.ruff.lint]
 select = ["ALL"]
 ignore = [
-    "ANN101",  # Missing type annotation for self in method
     "D",
     # "D100",  # Missing docstring in public module
     # "D104",  # Missing docstring in public package
