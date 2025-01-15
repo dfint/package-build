@@ -1367,6 +1367,20 @@ watchdog = {version = ">=2.1.5,<7", markers = "platform_system != \"Darwin\""}
 snowflake = ["snowflake-connector-python (>=2.8.0)", "snowflake-snowpark-python[modin] (>=1.17.0)"]
 
 [[package]]
+name = "streamlit-gettext"
+version = "0.0.4"
+description = "A Streamlit extension for easy localization of your apps"
+optional = false
+python-versions = ">=3.9"
+files = [
+    {file = "streamlit_gettext-0.0.4-py3-none-any.whl", hash = "sha256:0bfb72c86942325b25adb9c27b69ccc2d44b58f6a9c2cb7990c98c88e43fa4b5"},
+    {file = "streamlit_gettext-0.0.4.tar.gz", hash = "sha256:ad6bdc71ce180b4a867bd318d6090c937a2cef414060e6be35a89091578eaa21"},
+]
+
+[package.dependencies]
+streamlit = ">=1.37.0,<2.0.0"
+
+[[package]]
 name = "tenacity"
 version = "8.5.0"
 description = "Retry code until it succeeds"
@@ -1526,4 +1540,4 @@ dev = ["black (>=19.3b0)", "pytest (>=4.6.2)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "aebdba574e647b6c5c681613fcec893265f963d9fd65aaec9172357bbd7230a3"
+content-hash = "e9fd7c1ac730144f5523c4bdd39c288a3f1e77780a1eaa5891458a1a105560da"
