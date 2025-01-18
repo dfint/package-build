@@ -113,4 +113,15 @@ else:
 enable_filter = st.checkbox(label=_("Filter available files by DF variant, operating system, language"), value=True)
 glob_filter = f"*_{df_variant}_{operating_system}_{dict_entry.code}.zip" if enable_filter else "*.zip"
 
-show_file_list(root_dir, glob_filter=glob_filter)
+
+def file_sort_key(file_path: Path) -> tuple[str, str, str, str]:
+    _, version, variant, os, language = file_path.name.split("_")
+    return (
+        language,
+        os,
+        variant,
+        version,
+    )
+
+
+show_file_list(root_dir, glob_filter=glob_filter, sort_key=file_sort_key)
