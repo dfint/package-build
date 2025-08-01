@@ -15,7 +15,7 @@ loguru = "^0.7.3"
 streamlit-gettext = "^0.0.4"
 
 [tool.poetry.group.dev.dependencies]
-ruff = "^0.12.1"
+ruff = "^0.12.7"
 pytest = "^8.4.1"
 pytest-cov = "^6.2.1"
 
