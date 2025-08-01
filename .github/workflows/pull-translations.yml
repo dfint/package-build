@@ -27,7 +27,7 @@ jobs:
         rm -rf package_build/locale/zh
         rm -rf package_build/locale/ja
         rm -rf package_build/locale/ko
-    
+
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v7
       with:
