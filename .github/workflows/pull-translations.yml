@@ -29,7 +29,7 @@ jobs:
         rm -rf package_build/locale/ko
 
     - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v7
+      uses: peter-evans/create-pull-request@v8
       with:
         title: Update translation file(s) of the app
         commit-message: Update translation file(s) of the app
