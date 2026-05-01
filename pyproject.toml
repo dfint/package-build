@@ -9,7 +9,7 @@ license = "MIT"
 dependencies = [
     "streamlit>=1.57.0,<2",
     "requests>=2.32.4,<3",
-    "pydantic>=2.11.7,<3",
+    "pydantic>=2.13.3,<3",
     "loguru>=0.7.3,<0.8",
     "streamlit-gettext>=0.0.4,<0.0.5",
 ]
