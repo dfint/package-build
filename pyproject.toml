@@ -39,6 +39,7 @@ ignore = [
     # "D105",  # Missing docstring in magic method
     # "D200",  # One-line docstring should fit on one line
     # "D212",  # Multi-line docstring summary should start at the first line
+    "CPY001",
 ]
 
 [tool.ruff.lint.per-file-ignores]
