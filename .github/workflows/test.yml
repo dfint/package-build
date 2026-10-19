@@ -36,6 +36,7 @@ jobs:
         uv run pytest --cov=./
 
     - name: Upload coverage data to coveralls.io
+      continue-on-error: true
       run: |
         uvx coveralls --service=github
       env:
