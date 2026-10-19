@@ -1,10 +1,13 @@
 from collections.abc import Callable
+from pathlib import Path
 from unittest.mock import patch
 
 import pytest
 from streamlit.testing.v1 import AppTest
 
 from package_build.models import DictInfoEntry, HookInfoEntry
+
+project_root = Path(__file__).resolve().parent.parent
 
 
 @pytest.fixture
@@ -33,7 +36,8 @@ def apptest(get_dict_metadata: Callable, get_hook_metadata: Callable) -> AppTest
         ),
     ]
 
-    return AppTest.from_file("app.py").run()
+    app_path = project_root / "app.py"
+    return AppTest.from_file(app_path).run()
 
 
 def test_smoketest(apptest: AppTest):
