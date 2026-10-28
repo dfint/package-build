@@ -1,11 +1,10 @@
 from pathlib import Path
 
 import streamlit as st
-from streamlit_gettext import get_preferred_languages
 
 from package_build.download_parts import download_parts
 from package_build.file_list import show_file_list
-from package_build.i18n import gettext as _
+from package_build.i18n import gettext as _, get_preferred_languages
 from package_build.metadata import get_dict_metadata, get_hook_metadata
 from package_build.models import DictInfoEntry
 from package_build.package import build_package, package_up_to_date, remove_stale_packages

@@ -11,7 +11,7 @@ dependencies = [
     "requests>=2.34.2,<3",
     "pydantic>=2.13.4,<3",
     "loguru>=0.7.3,<0.8",
-    "streamlit-gettext>=0.0.4,<0.0.5",
+    "streamlit-gettext>=0.1.2,<0.2",
 ]
 
 [dependency-groups]

@@ -503,7 +503,7 @@ requires-dist = [
     { name = "pydantic", specifier = ">=2.13.4,<3" },
     { name = "requests", specifier = ">=2.34.2,<3" },
     { name = "streamlit", specifier = ">=1.60.0,<2" },
-    { name = "streamlit-gettext", specifier = ">=0.0.4,<0.0.5" },
+    { name = "streamlit-gettext", specifier = ">=0.1.2,<0.2" },
 ]
 
 [package.metadata.requires-dev]
@@ -1009,14 +1009,14 @@ wheels = [
 
 [[package]]
 name = "streamlit-gettext"
-version = "0.0.4"
+version = "0.1.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "streamlit" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/ea/03/6ae0225368a776eb02878a5314a2a6c56796e626f3c7cd1a691f0d10ed70/streamlit_gettext-0.0.4.tar.gz", hash = "sha256:ad6bdc71ce180b4a867bd318d6090c937a2cef414060e6be35a89091578eaa21", size = 3402, upload-time = "2025-01-14T14:05:55.826Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/f7/3b/273dd64775f1895e587f8398116a93726f73c9f903b4f025002aed7216ee/streamlit_gettext-0.1.2.tar.gz", hash = "sha256:a3bf470a7ecfc8a4a51baeaa8730ff6ee5fe173c522c831f87ce7af7ce70401f", size = 4361, upload-time = "2026-10-28T07:14:04.201Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/54/1c/e2a84c0f2f4c72565a188fce59fce1fbab0c9780483ec96450aff444e751/streamlit_gettext-0.0.4-py3-none-any.whl", hash = "sha256:0bfb72c86942325b25adb9c27b69ccc2d44b58f6a9c2cb7990c98c88e43fa4b5", size = 3730, upload-time = "2025-01-14T14:05:54.591Z" },
+    { url = "https://files.pythonhosted.org/packages/03/af/00af038dd1995deae88ff50d3b2593f4b7bde11bc37bf5278e90f0a917a5/streamlit_gettext-0.1.2-py3-none-any.whl", hash = "sha256:e406ed60735b275422f550083d16b14dc007532ea9643767d9760098ff0162e0", size = 4437, upload-time = "2026-10-28T07:14:03.071Z" },
 ]
 
 [[package]]
