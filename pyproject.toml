@@ -3,7 +3,7 @@ name = "package-build"
 version = "0.1.0"
 description = ""
 authors = [{ name = "insolor" }]
-requires-python = ">=3.10"
+requires-python = ">=3.14"
 readme = "README.md"
 license = "MIT"
 dependencies = [
@@ -27,7 +27,7 @@ xgettext.shell = "xgettext -d messages -o package_build/locale/messages.pot app.
 msgfmt = "find ./package_build/locale -name \\*.po -execdir msgfmt messages.po -o messages.mo \\;"
 
 [tool.ruff]
-target-version = "py310"
+target-version = "py314"
 line-length = 120
 
 [tool.ruff.lint]
