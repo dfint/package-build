@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import contextlib
 import shutil
 from datetime import UTC, datetime, timedelta
