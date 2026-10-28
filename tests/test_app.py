@@ -1,5 +1,5 @@
-from collections.abc import Callable
 from pathlib import Path
+from typing import TYPE_CHECKING
 from unittest.mock import patch
 
 import pytest
@@ -7,6 +7,9 @@ from streamlit.testing.v1 import AppTest
 
 from package_build.i18n import set_preferred_languages
 from package_build.models import DictInfoEntry, HookInfoEntry
+
+if TYPE_CHECKING:
+    from collections.abc import Callable
 
 project_root = Path(__file__).resolve().parent.parent
 

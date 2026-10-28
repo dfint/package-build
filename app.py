@@ -1,4 +1,5 @@
 from pathlib import Path
+from typing import TYPE_CHECKING
 from urllib.parse import urlsplit
 
 import streamlit as st
@@ -8,13 +9,17 @@ from package_build.file_list import show_file_list
 from package_build.i18n import (
     get_available_languages,
     get_preferred_languages,
-    gettext as _,
     set_preferred_languages,
 )
+from package_build.i18n import (
+    gettext as _,
+)
 from package_build.metadata import get_dict_metadata, get_hook_metadata
-from package_build.models import DictInfoEntry
 from package_build.package import build_package, package_up_to_date, remove_stale_packages
 from package_build.parse_metadata import parse_metadata
+
+if TYPE_CHECKING:
+    from package_build.models import DictInfoEntry
 
 
 def is_running_locally() -> bool:

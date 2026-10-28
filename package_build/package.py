@@ -1,11 +1,14 @@
 import contextlib
 import shutil
-from datetime import datetime, timedelta, timezone
-from pathlib import Path
+from datetime import UTC, datetime, timedelta
+from typing import TYPE_CHECKING
 from zipfile import ZIP_DEFLATED, ZipFile
 
-from package_build.download_parts import DownloadedParts
-from package_build.models import HookInfoEntry
+if TYPE_CHECKING:
+    from pathlib import Path
+
+    from package_build.download_parts import DownloadedParts
+    from package_build.models import HookInfoEntry
 
 
 def zip_directory(directory: Path, filename: Path) -> None:
@@ -51,7 +54,7 @@ def build_package(
 
 
 def get_file_modification_datetime(path: Path) -> datetime:
-    return datetime.fromtimestamp(path.stat().st_mtime, tz=timezone.utc)
+    return datetime.fromtimestamp(path.stat().st_mtime, tz=UTC)
 
 
 def package_up_to_date(package_path: Path, lifetime: timedelta = timedelta(hours=12)) -> bool:
@@ -63,7 +66,7 @@ def package_up_to_date(package_path: Path, lifetime: timedelta = timedelta(hours
         return False
 
     modification_datetime = get_file_modification_datetime(package_path)
-    return (modification_datetime + lifetime) > datetime.now(tz=timezone.utc)
+    return (modification_datetime + lifetime) > datetime.now(tz=UTC)
 
 
 def remove_stale_packages(root_dir: Path) -> None:

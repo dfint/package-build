@@ -1,11 +1,12 @@
-from typing import NamedTuple
+from typing import TYPE_CHECKING, NamedTuple
 
 import requests
 import streamlit as st
 
 from package_build.i18n import gettext as _
 
-from .models import DictInfoEntry, HookInfoEntry
+if TYPE_CHECKING:
+    from .models import DictInfoEntry, HookInfoEntry
 
 
 def download(url: str) -> bytes:
