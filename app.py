@@ -1,17 +1,46 @@
+from __future__ import annotations
+
 from pathlib import Path
+from typing import TYPE_CHECKING
+from urllib.parse import urlsplit
 
 import streamlit as st
-from streamlit_gettext import get_preferred_languages
 
 from package_build.download_parts import download_parts
 from package_build.file_list import show_file_list
-from package_build.i18n import gettext as _
+from package_build.i18n import (
+    get_available_languages,
+    get_preferred_languages,
+    set_preferred_languages,
+)
+from package_build.i18n import (
+    gettext as _,
+)
 from package_build.metadata import get_dict_metadata, get_hook_metadata
-from package_build.models import DictInfoEntry
 from package_build.package import build_package, package_up_to_date, remove_stale_packages
 from package_build.parse_metadata import parse_metadata
 
+if TYPE_CHECKING:
+    from package_build.models import DictInfoEntry
+
+
+def is_running_locally() -> bool:
+    app_url = st.context.url
+    return app_url is None or urlsplit(app_url).hostname in {"localhost", "127.0.0.1", "::1"}
+
+
 st.set_page_config(page_title=_("DF localization package builder"), page_icon="📦")
+
+if is_running_locally():
+    application_language = st.segmented_control(
+        "Language",
+        options=get_available_languages(),
+        label_visibility="collapsed",
+        required=True,
+        key="application_language",
+    )
+    if application_language:
+        set_preferred_languages([application_language])
 
 st.header(_("DF localization package builder"))
 st.write(_("Build/download a package, unpack into the game's directory with file repalacement."))
@@ -44,6 +73,21 @@ variants_priority = {
 variants = sorted(df_version_options[df_version].variants, key=lambda v: variants_priority.get(v, 3))
 
 
+def normalize_language_code(language_code: str) -> str:
+    return language_code.replace("_", "-").casefold()
+
+
+def get_language_priority(user_languages: list[str], language_code: str) -> int:
+    if language_code.startswith("en"):
+        return 1000
+
+    try:
+        normalized_language_code = normalize_language_code(language_code)
+        return user_languages.index(normalized_language_code) - len(user_languages)
+    except ValueError:
+        return 0
+
+
 def language_ordering(dict_info_entry: DictInfoEntry) -> tuple[int, str]:
     """
     Set max priority to user's languages (according to their index in the user's browser settings)
@@ -51,19 +95,8 @@ def language_ordering(dict_info_entry: DictInfoEntry) -> tuple[int, str]:
 
     All other languages are sorted by their codes.
     """
-    user_languages = get_preferred_languages()
-
-    def get_language_priority(language_code: str) -> int:
-        if language_code.startswith("en"):
-            return 1000
-
-        try:
-            return user_languages.index(dict_info_entry.code) - len(user_languages)
-        except ValueError:
-            return 0
-
-    return (get_language_priority(dict_info_entry.code), dict_info_entry.code)
-
+    user_languages = [normalize_language_code(language) for language in get_preferred_languages()]
+    return get_language_priority(user_languages, dict_info_entry.code), dict_info_entry.code
 
 
 with column2:

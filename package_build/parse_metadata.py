@@ -1,8 +1,11 @@
+from __future__ import annotations
+
 import re
 from dataclasses import dataclass, field
-from typing import NamedTuple
+from typing import TYPE_CHECKING, NamedTuple
 
-from .models import HookInfoEntry
+if TYPE_CHECKING:
+    from .models import HookInfoEntry
 
 
 @dataclass
