@@ -1,16 +1,39 @@
 from pathlib import Path
+from urllib.parse import urlsplit
 
 import streamlit as st
 
 from package_build.download_parts import download_parts
 from package_build.file_list import show_file_list
-from package_build.i18n import gettext as _, get_preferred_languages
+from package_build.i18n import (
+    get_available_languages,
+    get_preferred_languages,
+    gettext as _,
+    set_preferred_languages,
+)
 from package_build.metadata import get_dict_metadata, get_hook_metadata
 from package_build.models import DictInfoEntry
 from package_build.package import build_package, package_up_to_date, remove_stale_packages
 from package_build.parse_metadata import parse_metadata
 
+
+def is_running_locally() -> bool:
+    app_url = st.context.url
+    return app_url is None or urlsplit(app_url).hostname in {"localhost", "127.0.0.1", "::1"}
+
+
 st.set_page_config(page_title=_("DF localization package builder"), page_icon="📦")
+
+if is_running_locally():
+    application_language = st.segmented_control(
+        "Language",
+        options=get_available_languages(),
+        label_visibility="collapsed",
+        required=True,
+        key="application_language",
+    )
+    if application_language:
+        set_preferred_languages([application_language])
 
 st.header(_("DF localization package builder"))
 st.write(_("Build/download a package, unpack into the game's directory with file repalacement."))

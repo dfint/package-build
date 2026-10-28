@@ -7,4 +7,6 @@ _gettext_wrapper = GettextWrapper(locale_path=current_path / "locale")
 
 gettext = _gettext_wrapper.gettext
 ngettext = _gettext_wrapper.ngettext
+get_available_languages = _gettext_wrapper.get_available_languages
 get_preferred_languages = _gettext_wrapper.get_preferred_languages
+set_preferred_languages = _gettext_wrapper.set_preferred_languages

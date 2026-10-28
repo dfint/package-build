@@ -5,6 +5,7 @@ from unittest.mock import patch
 import pytest
 from streamlit.testing.v1 import AppTest
 
+from package_build.i18n import set_preferred_languages
 from package_build.models import DictInfoEntry, HookInfoEntry
 
 project_root = Path(__file__).resolve().parent.parent
@@ -42,3 +43,15 @@ def apptest(get_dict_metadata: Callable, get_hook_metadata: Callable) -> AppTest
 
 def test_smoketest(apptest: AppTest):
     assert not apptest.exception, apptest.exception[0].stack_trace
+
+
+def test_language_selector(apptest: AppTest):
+    language_selector = apptest.segmented_control[0]
+    assert "ru" in language_selector.options
+
+    try:
+        language_selector.set_value("ru").run()
+        assert not apptest.exception, apptest.exception[0].stack_trace
+        assert apptest.header[0].value == "Сборщик пакетов локализации для DF"
+    finally:
+        set_preferred_languages(None)
