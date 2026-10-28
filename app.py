@@ -66,6 +66,21 @@ variants_priority = {
 variants = sorted(df_version_options[df_version].variants, key=lambda v: variants_priority.get(v, 3))
 
 
+def normalize_language_code(language_code: str) -> str:
+    return language_code.replace("_", "-").casefold()
+
+
+def get_language_priority(user_languages: list[str], language_code: str) -> int:
+    if language_code.startswith("en"):
+        return 1000
+
+    try:
+        normalized_language_code = normalize_language_code(language_code)
+        return user_languages.index(normalized_language_code) - len(user_languages)
+    except ValueError:
+        return 0
+
+
 def language_ordering(dict_info_entry: DictInfoEntry) -> tuple[int, str]:
     """
     Set max priority to user's languages (according to their index in the user's browser settings)
@@ -73,19 +88,8 @@ def language_ordering(dict_info_entry: DictInfoEntry) -> tuple[int, str]:
 
     All other languages are sorted by their codes.
     """
-    user_languages = get_preferred_languages()
-
-    def get_language_priority(language_code: str) -> int:
-        if language_code.startswith("en"):
-            return 1000
-
-        try:
-            return user_languages.index(dict_info_entry.code) - len(user_languages)
-        except ValueError:
-            return 0
-
-    return (get_language_priority(dict_info_entry.code), dict_info_entry.code)
-
+    user_languages = [normalize_language_code(language) for language in get_preferred_languages()]
+    return get_language_priority(user_languages, dict_info_entry.code), dict_info_entry.code
 
 
 with column2:

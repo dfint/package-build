@@ -35,6 +35,22 @@ def apptest(get_dict_metadata: Callable, get_hook_metadata: Callable) -> AppTest
             encoding="https://example.com/cp437.toml",
             checksum=0,
         ),
+        DictInfoEntry(
+            language="Belarusian",
+            code="be",
+            csv="https://example.com/be.csv",
+            font="https://example.com/cp437.png",
+            encoding="https://example.com/cp437.toml",
+            checksum=0,
+        ),
+        DictInfoEntry(
+            language="Portuguese (Brazil)",
+            code="pt_BR",
+            csv="https://example.com/pt_BR.csv",
+            font="https://example.com/cp437.png",
+            encoding="https://example.com/cp437.toml",
+            checksum=0,
+        ),
     ]
 
     app_path = project_root / "app.py"
@@ -53,5 +69,14 @@ def test_language_selector(apptest: AppTest):
         language_selector.set_value("ru").run()
         assert not apptest.exception, apptest.exception[0].stack_trace
         assert apptest.header[0].value == "Сборщик пакетов локализации для DF"
+    finally:
+        set_preferred_languages(None)
+
+
+def test_brazilian_portuguese_is_prioritized(apptest: AppTest):
+    try:
+        apptest.segmented_control[0].set_value("pt_BR").run()
+        language_selector = apptest.selectbox[-1]
+        assert language_selector.options[0] == "Português (Brasil)"
     finally:
         set_preferred_languages(None)
